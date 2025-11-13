@@ -13,11 +13,19 @@ export default class LineString implements Geometry{
   }}
 
 getType() : string {
-  return "LineString"
+  return "LineString";
 }
 
 isEmpty(): Boolean {
     return this.getNumPoints() == 0;    
+}
+
+translate(dx: number, dy: number) {
+  if (this.isEmpty()) return ; 
+  else {
+    for (let point of this.points){
+      point.translate(dx,dy);
+    }}
 }
 
 getNumPoints() :number {
