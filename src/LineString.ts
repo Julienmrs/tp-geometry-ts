@@ -1,6 +1,7 @@
 import Coordinate from "./Coordinate";
 import Geometry from "./Geometry";
 import Point from "./Point";
+
 export default class LineString implements Geometry{
   private points?: Array<Point>;
   constructor(points?: Array<Point>) {
@@ -13,6 +14,10 @@ export default class LineString implements Geometry{
 
 getType() : string {
   return "LineString"
+}
+
+isEmpty(): Boolean {
+    return this.getNumPoints() == 0;    
 }
 
 getNumPoints() :number {

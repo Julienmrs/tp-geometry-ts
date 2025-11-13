@@ -5,23 +5,31 @@ export default class Point implements Geometry{
   private coordinate?: Coordinate;
 
   constructor(coordinate?: Coordinate) {
-    this.coordinate = coordinate ;
+    if (coordinate) {
+      if (coordinate.length == 2){
+        this.coordinate = coordinate ;
+      }
+    }else this.coordinate = []
+    
   }
 
   getType() : string {
   return "Point"
 }
+  isEmpty(): Boolean {
+      return this.coordinate.length == 0;
+  }
 
   getCoordinate(): Coordinate {
     return this.coordinate;
   }
 
   x(): number {
-    return this.coordinate ? this.coordinate[0] : Number.NaN ;
+    return this.coordinate.length > 0 ? this.coordinate[0] : Number.NaN ;
   }
 
   y(): number {
-    return this.coordinate ? this.coordinate[1] : Number.NaN ;
+    return this.coordinate.length > 1  ? this.coordinate[1] : Number.NaN ;
   }
 
 }
