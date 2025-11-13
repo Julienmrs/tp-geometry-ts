@@ -8,6 +8,7 @@ describe("test Point", () => {
         expect(p.getCoordinate()).to.equal(undefined);
         expect(Number.isNaN(p.x()));
         expect(Number.isNaN(p.y()));
+        expect(p.getType()).to.equal("Point");
     });
     it("test constructor with coordinates", () => {
         const p = new Point([3.0,4.0]);
@@ -15,5 +16,6 @@ describe("test Point", () => {
         expect(p.x()).to.equal(3.0);
         expect(p.y()).to.equal(4.0);
     });
+
 });
 
