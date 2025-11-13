@@ -1,7 +1,7 @@
 import "mocha";
 import { expect } from "chai";
 import Envelope from '../src/Envelope';
-import Coordinate from '../src/Coordinate';
+import EnvelopeBuilder from '../src/EnvelopeBuilder';
 
 describe("test Envelope", () => {
     it("test default constructor", () => {
@@ -21,5 +21,10 @@ describe("test Envelope", () => {
         expect(env.getXmax()).to.deep.equal(5)
         expect(env.getYmax()).to.deep.equal(5)
         expect(env.toString()).to.deep.equal("[0,0],[5,5]")
+    });
+
+    it("test enveloppe builder", () => {
+        const envb= new EnvelopeBuilder()
+        
     });
 })

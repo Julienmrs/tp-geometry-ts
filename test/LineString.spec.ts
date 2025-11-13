@@ -9,8 +9,6 @@ describe("test LineString", () => {
         expect(l.getType()).to.equal("LineString");
         expect(l.getNumPoints()).to.equal(0);
         expect(l.isEmpty()).to.equal(true);
-
-
     });
 
     it("test constructor with coordinates", () => {
