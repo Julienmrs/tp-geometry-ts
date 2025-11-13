@@ -69,9 +69,9 @@ describe("test LineString", () => {
         const l = new LineString([p1, p2])
         const copy = l.clone();
         expect(l.getNumPoints()).to.be.equal(copy.getNumPoints())
-        copy.translate(1,2)
+        copy.translate(1, 2)
         copy.getPointN(0).getCoordinate()
-        expect(l.getPointN(0).getCoordinate()).to.be.deep.equal([3,4])
+        expect(l.getPointN(0).getCoordinate()).to.be.deep.equal([3, 4])
     })
 });
 
