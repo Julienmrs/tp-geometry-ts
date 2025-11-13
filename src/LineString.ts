@@ -28,6 +28,19 @@ translate(dx: number, dy: number) {
     }}
 }
 
+clone(): LineString {
+  if (this.isEmpty()) return new LineString();
+  else{
+    var list = new Array<Point>
+    for(let point of this.points){
+      list.push(point.clone())
+    }
+    
+    return new LineString(list)
+  }
+  
+}
+
 getNumPoints() :number {
 return this.points ? this.points.length : 0 ;  
 }

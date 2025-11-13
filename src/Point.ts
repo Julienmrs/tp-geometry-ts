@@ -9,7 +9,7 @@ export default class Point implements Geometry{
       if (coordinate.length == 2){
         this.coordinate = coordinate ;
       }
-    }else this.coordinate = []
+    } else this.coordinate = []
     
   }
 
@@ -26,6 +26,12 @@ export default class Point implements Geometry{
     }
     this.coordinate[0] +=  dx ;
     this.coordinate[1] += dy;
+  }
+
+  clone(): Point {
+    if (this.isEmpty()) return new Point();
+    const p = new Point([this.x(),this.y()])
+    return p
   }
 
   getCoordinate(): Coordinate {

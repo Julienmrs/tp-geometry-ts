@@ -30,5 +30,22 @@ describe("test Point", () => {
         p.translate(1,2);
         expect(p.getCoordinate()).to.deep.equal([4,6]);
     })
+
+    it("test clone empty point ", () => {
+        const p = new Point();
+        const copy = p.clone();
+        copy.translate(10.0,10.0);
+        expect(p.isEmpty()).to.equal(true);
+        expect(copy.isEmpty()).to.equal(true);
+    })
+
+    it("test clone point ", () => {
+        const p = new Point([3.0,4.0]);
+        const copy = p.clone();
+        copy.translate(10.0,10.0);
+        expect(copy.getCoordinate()).to.deep.equal([13,14]);
+        expect(p.getCoordinate()).to.deep.equal([3,4]);
+    })
+
 });
 
