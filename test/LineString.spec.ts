@@ -19,6 +19,7 @@ describe("test LineString", () => {
         
         expect(l.getPointN(0)).to.equal(p1);
         expect(l.getPointN(1)).to.equal(p2);
+        expect(l.isEmpty()).to.equal(false)
     });
 
         it("test constructor with 1 coordinate", () => {

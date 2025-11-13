@@ -16,6 +16,7 @@ describe("test Point", () => {
         expect(p.getCoordinate()).to.deep.equal([3.0,4.0]);
         expect(p.x()).to.equal(3.0);
         expect(p.y()).to.equal(4.0);
+        expect(p.isEmpty()).to.equal(false)
     });
 
 });
