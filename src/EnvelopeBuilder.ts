@@ -6,8 +6,10 @@ export default class EnvelopeBuilder {
     private yVals: number[] = [];
 
     insert(coordinate: Coordinate) {
+        if ((coordinate) && coordinate.length >=2){
         this.xVals.push(coordinate[0]);
         this.yVals.push(coordinate[1]);
+        }
     }
 
     build(): Envelope {
