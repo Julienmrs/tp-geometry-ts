@@ -1,7 +1,6 @@
 import "mocha";
 import { expect } from "chai";
 import Envelope from '../src/Envelope';
-import EnvelopeBuilder from '../src/EnvelopeBuilder';
 
 describe("test Envelope", () => {
     it("test default constructor", () => {
@@ -23,8 +22,5 @@ describe("test Envelope", () => {
         expect(env.toString()).to.deep.equal("[0,0],[5,5]")
     });
 
-    it("test enveloppe builder", () => {
-        const envb= new EnvelopeBuilder()
-        
-    });
+
 })
