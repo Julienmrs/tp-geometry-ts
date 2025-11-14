@@ -20,7 +20,7 @@ export default class Point implements Geometry{
   return "Point"
 }
   isEmpty(): Boolean {
-      return this.coordinate.length == 0;
+      return this.getCoordinate().length == 0;
   }
 
   translate(dx: number, dy: number) {

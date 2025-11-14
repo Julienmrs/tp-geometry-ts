@@ -6,6 +6,7 @@ import Geometry from '../src/Geometry';
 import LineString from "../src/LineString";
 import GeometryVisitor from "../src/GeometryVisitor";
 import Envelope from "../src/Envelope";
+import WktVisitor from '../src/WktVisitor';
 
 describe("test WktWriter", () => {
     it("test default constructor", () => {
@@ -35,6 +36,47 @@ describe("test WktWriter", () => {
 
     });
 
+    it("test WktVisitor point ", () => {
+        const visitorp = new WktVisitor();
+        const p1 = new Point();
+        p1.accept(visitorp);
+        const wktp = visitorp.getResult();
+        expect(wktp).to.equal("POINT")
 
+    })
+
+    it("test WktVisitor point ", () => {
+        const visitorp = new WktVisitor();
+        const p1 = new Point([3.0, 4.0]);
+        p1.accept(visitorp);
+        const wktp = visitorp.getResult();
+        expect(wktp).to.equal("POINT(3 4)")
+        console.log(visitorp)
+
+
+    })
+
+    it("test WktVisitor line empty", () => {
+        var l = new LineString();
+        const visitorl = new WktVisitor();
+        l.accept(visitorl);
+        const wktl = visitorl.getResult();
+        console.log(visitorl)
+        expect(wktl).to.equal("LINESTRING")
+
+    })
+    it("test WktVisitor line ", () => {
+        const visitorp = new WktVisitor();
+        const visitorl = new WktVisitor();
+        const p1 = new Point([3.0, 4.0]);
+        const p2 = new Point([5.0, 6.0]);
+        var l = new LineString([p1, p2,]);
+
+        l.accept(visitorl);
+        const wktl = visitorl.getResult();
+        console.log(visitorl)
+        expect(wktl).to.equal("LINESTRING(3 4,5 6)")
+
+    })
 
 })
