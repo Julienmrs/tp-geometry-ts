@@ -1,6 +1,9 @@
 import "mocha";
 import { expect } from "chai";
 import Point from "../src/Point";
+import LogGeometryVisitor from '../src/LogGeometryVisitor';
+import Geometry from '../src/Geometry';
+
 
 describe("test Point", () => {
     it("test default constructor", () => {
@@ -62,6 +65,18 @@ describe("test Point", () => {
         
     })
 
+    it("test visitor point empty",() => {
+        const visitor = new LogGeometryVisitor();
+        const geometry = new Point()
+        geometry.accept(visitor)
+    })
+
+    it("test visitor point",() => {
+        const visitor = new LogGeometryVisitor();
+        const geometry = new Point([3.0,4.0]);
+
+        geometry.accept(visitor)
+    })
 
 });
 

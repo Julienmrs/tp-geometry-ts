@@ -4,6 +4,8 @@ import Point from "../src/Point";
 import WktWriter from '../src/WktWriter';
 import Geometry from '../src/Geometry';
 import LineString from "../src/LineString";
+import GeometryVisitor from "../src/GeometryVisitor";
+import Envelope from "../src/Envelope";
 
 describe("test WktWriter", () => {
     it("test default constructor", () => {
@@ -22,16 +24,13 @@ describe("test WktWriter", () => {
 
     });
 
-    it("test construct point", () => {
+    it("test construct linestring", () => {
         const wkt = new WktWriter();
         let p1 = new Point([0, 0])
-        let p2= new Point([1,1])
-        let p3 = new Point([5,5])
-        
-        var l = new LineString([p1,p2,p3])
-        console.log(l.getType())
-        console.log(wkt.write(l))
+        let p2 = new Point([1, 1])
+        let p3 = new Point([5, 5])
 
+        var l = new LineString([p1, p2, p3])
         expect(wkt.write(l)).to.deep.equal("LINESTRING(0 0,1 1,5 5)");
 
     });

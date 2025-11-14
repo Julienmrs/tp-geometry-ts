@@ -2,6 +2,7 @@ import Coordinate from "./Coordinate";
 import Envelope from "./Envelope";
 import EnvelopeBuilder from "./EnvelopeBuilder";
 import Geometry from "./Geometry";
+import GeometryVisitor from "./GeometryVisitor";
 import Point from "./Point";
 
 export default class LineString implements Geometry{
@@ -60,5 +61,9 @@ getEnvelope(): Envelope {
   }
     return envb.build()
 }}
+
+  accept(visitor: GeometryVisitor): void {
+      visitor.visitLineString(this);
+  }
 
 }
