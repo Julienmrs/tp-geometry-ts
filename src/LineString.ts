@@ -1,4 +1,6 @@
 import Coordinate from "./Coordinate";
+import Envelope from "./Envelope";
+import EnvelopeBuilder from "./EnvelopeBuilder";
 import Geometry from "./Geometry";
 import Point from "./Point";
 
@@ -48,4 +50,15 @@ return this.points ? this.points.length : 0 ;
 getPointN(n :number) : Point {
     return this.points[n]  ;
 } 
+
+getEnvelope(): Envelope {
+  if (this.isEmpty()) return new Envelope();
+  else{
+  var envb = new EnvelopeBuilder()
+  for(let point of this.points){
+      envb.insert(point.getCoordinate())
+  }
+    return envb.build()
+}}
+
 }

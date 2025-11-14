@@ -71,5 +71,21 @@ describe("test LineString", () => {
         copy.getPointN(0).getCoordinate()
         expect(l.getPointN(0).getCoordinate()).to.be.deep.equal([3, 4])
     })
+
+    it("test envelope line empty ", () => {
+        const l = new LineString()
+        const env = l.getEnvelope()
+        expect(env.isEmpty()).to.be.true;
+    })
+
+    it("test envelope line", () => {
+        const p1 = new Point([3.0, 4.0]);
+        const p2 = new Point([2.0, 6.0]);
+        const l = new LineString([p1, p2])
+        const env = l.getEnvelope()
+        expect(env.isEmpty()).to.be.false;
+        expect(env.toString()).to.equal("[2,4],[3,6]")
+
+    })
 });
 

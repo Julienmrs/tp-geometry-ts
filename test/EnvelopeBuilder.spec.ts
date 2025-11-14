@@ -9,7 +9,6 @@ describe("test Envelope Builder", () => {
         const env = envb.build()
         expect(env.isEmpty()).to.equal(true)
         expect(Number.isNaN(env.getXmin())).to.be.true;
-        console.log(env)
         expect(Number.isNaN(env.getYmin())).to.be.true;
         expect(Number.isNaN(env.getXmax())).to.be.true;
         expect(Number.isNaN(env.getYmax())).to.be.true;

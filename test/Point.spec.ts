@@ -47,5 +47,21 @@ describe("test Point", () => {
         expect(p.getCoordinate()).to.deep.equal([3,4]);
     })
 
+    it("test envelope point empty ", () => {
+        const p = new Point();
+        const env = p.getEnvelope()
+        expect(env.isEmpty()).to.be.true;
+    })
+
+    it("test envelope point", () => {
+        const p = new Point([3.0,4.0]);
+        const env = p.getEnvelope()
+        expect(env.isEmpty()).to.be.false;
+        expect(env.toString()).to.equal("[3,4],[3,4]")
+
+        
+    })
+
+
 });
 

@@ -11,7 +11,7 @@ export default class EnvelopeBuilder {
     }
 
     build(): Envelope {
-        if (this.xVals.length < 1 || this.yVals.length < 1) {
+        if (this.xVals.length < 1 || this.yVals.length < 1 || this.xVals[0]==undefined || this.yVals[0]==undefined) {
             return new Envelope();
         }
 
