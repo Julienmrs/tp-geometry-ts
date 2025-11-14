@@ -68,14 +68,14 @@ describe("test Point", () => {
     it("test visitor point empty",() => {
         const visitor = new LogGeometryVisitor();
         const geometry = new Point()
-        geometry.accept(visitor)
+        expect(visitor.visitPoint(geometry)).to.equal("Je suis un point vide.")
     })
 
     it("test visitor point",() => {
         const visitor = new LogGeometryVisitor();
-        const geometry = new Point([3.0,4.0]);
+        const geometry = new Point([2.0,3.0]);
 
-        geometry.accept(visitor)
+        expect(visitor.visitPoint(geometry)).to.equal("Je suis un point avec x=2 et y=3.")
     })
 
 });

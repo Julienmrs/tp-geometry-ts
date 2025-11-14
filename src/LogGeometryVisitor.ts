@@ -6,12 +6,12 @@ export default class LogGeometryVisitor implements GeometryVisitor{
 
     visitPoint(point: Point) {
         if (point.isEmpty()){return "Je suis un point vide."}
-        return `"Je suis un point avec x=${point.x()} et y=${point.y()}".`
+        return `Je suis un point avec x=${point.x()} et y=${point.y()}.`
     }
 
     visitLineString(lineString: LineString) {
         if (lineString.isEmpty()){return "Je suis une polyligne vide."}
-        return `"Je suis unE polyligne  définie par ${lineString.getNumPoints()} point(s)".`
+        return `Je suis une polyligne définie par ${lineString.getNumPoints()} point(s).`
     }
     
     
