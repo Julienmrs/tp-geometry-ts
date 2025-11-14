@@ -92,6 +92,7 @@ describe("test LineString", () => {
     it("test visitor lineString empty", () => {
         const visitor = new LogGeometryVisitor();
         const geometry = new LineString()
+        geometry.accept(visitor)
         expect(visitor.visitLineString(geometry)).to.equal("Je suis une polyligne vide.")
     })
 
@@ -100,6 +101,7 @@ describe("test LineString", () => {
         const p1 = new Point([3.0, 4.0]);
         const p2 = new Point([5.0, 6.0]);
         const geometry = new LineString([p1, p2])
+        geometry.accept(visitor)
         expect(visitor.visitLineString(geometry)).to.equal("Je suis une polyligne définie par 2 point(s).")
     })
 

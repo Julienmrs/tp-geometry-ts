@@ -3,6 +3,7 @@ import { expect } from "chai";
 import Point from "../src/Point";
 import LogGeometryVisitor from '../src/LogGeometryVisitor';
 import Geometry from '../src/Geometry';
+import GeometryVisitor from '../src/GeometryVisitor';
 
 
 describe("test Point", () => {
@@ -61,20 +62,20 @@ describe("test Point", () => {
         const env = p.getEnvelope()
         expect(env.isEmpty()).to.be.false;
         expect(env.toString()).to.equal("[3,4],[3,4]")
-
         
     })
 
     it("test visitor point empty",() => {
         const visitor = new LogGeometryVisitor();
         const geometry = new Point()
+        geometry.accept(visitor)
         expect(visitor.visitPoint(geometry)).to.equal("Je suis un point vide.")
     })
 
     it("test visitor point",() => {
         const visitor = new LogGeometryVisitor();
         const geometry = new Point([2.0,3.0]);
-
+        geometry.accept(visitor)
         expect(visitor.visitPoint(geometry)).to.equal("Je suis un point avec x=2 et y=3.")
     })
 
